@@ -919,7 +919,7 @@ function parse(str, options){
  */
 function handleTemplateCache (options, str) {
   var key = options.filename;
-  var readFileSync = options.readFileSync || fs.readFileSync.bind(fs)
+  var readFileSync = options.readFileSync || fs.readFileSync
   if (options.cache && exports.cache[key]) {
     return exports.cache[key];
   } else {
@@ -1146,7 +1146,7 @@ exports.renderFile = function(path, options, fn){
 exports.compileFileClient = function(path, options){
   var key = path + ':client';
   options = options || {};
-  var readFileSync = options.readFileSync || fs.readFileSync.bind(fs)
+  var readFileSync = options.readFileSync || fs.readFileSync
 
   options.filename = path;
 
@@ -2804,7 +2804,7 @@ var Parser = exports = module.exports = function Parser(str, filename, options){
     this.readFileSync = options.readFileSync
   } else {
     var fs = require('fs');
-    this.readFileSync = fs.readFileSync.bind(fs);
+    this.readFileSync = fs.readFileSync
   }
 };
 
